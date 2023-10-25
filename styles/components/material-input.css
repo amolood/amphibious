@@ -1,0 +1,103 @@
+@layer components {
+	.material-input {
+		@apply relative rounded;
+	}
+
+	.material-input__input {
+		@apply block w-full h-12 box-border px-4 py-[0.875em];
+	}
+
+	.material-input__label {
+		/* @apply absolute top-0 bottom-0 flex items-center pointer-events-none left-4; */
+		/* @apply absolute top-[0.825em] left-4 pointer-events-none transition ease-out; */
+		@apply absolute top-0 bottom-0 left-0 right-0 border rounded pointer-events-none border-neutral-400;
+	}
+
+	.material-input__label-text {
+		@apply absolute invisible block transition-all ease-out -translate-y-1/2 max-w-0 top-1/2 left-4;
+	}
+
+	.material-input__text {
+		@apply visible opacity-0 px-[2px];
+	}
+
+	.material-input__input:hover {
+		@apply border-black;
+	}
+
+	.material-input__input:focus {
+		@apply border-blue-500 outline-none;
+	}
+
+	/* Input focus + label */
+	.material-input__input:focus + .material-input__label {
+		/* @apply origin-[0_50%] scale-75 -translate-y-full text-blue-500; */
+		@apply border-blue-500;
+	}
+
+	/* .material-input__input:focus
+		+ .material-input__label
+		.material-input__label-text {
+	} */
+
+	/* Input focus + .label .text */
+	.material-input__input:focus
+		+ .material-input__label
+		.material-input__label-text {
+		/* @apply text-blue-500; */
+		/* @apply max-w-full; */
+		@apply max-w-full translate-y-[-200%] text-xs;
+	}
+
+	/* .material-input__input:focus
+		+ .material-input__label
+		.material-input__label-text,
+	:not(.material-input__input[value=""])
+		+ .material-input__label
+		.material-input__label-text { */
+	/* @apply px-1 text-xs text-blue-500 -translate-y-1/2; */
+	/* } */
+
+	/* .material-input__label-text { */
+	/* @apply transition-all ease-out; */
+	/* @apply absolute top-0 left-0 visible inline-block opacity-0 px-[2px] max-w-0; */
+	/* } */
+
+	.mui-input-outline {
+		@apply relative;
+	}
+
+	.mui-input-outline__input {
+		@apply w-full px-4 py-3 rounded outline-0 text-slate-900;
+	}
+	.mui-input-outline__input:hover ~ .mui-input-outline__bg {
+		@apply border-black;
+	}
+	.mui-input-outline__input:focus ~ .mui-input-outline__bg {
+		@apply border-blue-500;
+	}
+	.mui-input-outline__input:focus ~ .mui-input-outline__bg span {
+		@apply bg-[#ffffffff];
+	}
+	/* input focus */
+	.mui-input-outline__input:focus + .mui-input-outline__label,
+	/* input not empty + label */
+	:not(.mui-input-outline__input[value=""]) + .mui-input-outline__label {
+		@apply -translate-y-[50%] translate-x-[2px] text-xs z-[1];
+	}
+
+	/* :not(.mui-input-outline__input[value=""]) + .mui-input-outline__label {
+		@apply;
+	} */
+
+	.mui-input-outline__label {
+		@apply absolute top-0 transition-all translate-y-1/2 cursor-text left-4;
+	}
+
+	.mui-input-outline__bg {
+		@apply absolute top-0 bottom-0 left-0 right-0 block px-4 pt-1 text-xs border rounded pointer-events-none;
+	}
+	.mui-input-outline__bg span {
+		@apply transition-all bg-[#ffffff00] w-max block text-transparent -translate-y-2 px-[2px] visible;
+	}
+}

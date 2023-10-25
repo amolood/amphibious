@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>$(hostname) - Packages</title>
+
+		<link rel="stylesheet" href="./styles/output.css" />
+	</head>
+
+	<body>
+		<div id="root" class="min-h-screen text-sm text-slate-500 sm:text-base">
+			<!-- Navbar start -->
+			<nav id="navbar" class="text-white bg-blue-500">
+				<div class="mx-auto max-w-app-margin-12">
+					<!-- <div class="pt-6 mx-2 sm:mx-12 md:mx-24"> -->
+					<div class="pt-6 mx-4 min-[480px]:mx-8 sm:mx-12">
+						<!-- Top -->
+						<div
+							id="navbar__top"
+							class="flex items-center justify-between"
+						>
+							<!-- Logo -->
+							<a href="/" class="p-2 pl-0 text-lg">$(hostname)</a>
+
+							<!-- Links -->
+							<ul class="hidden gap-12 md:flex">
+								<li class="flex items-center justify-center">
+									<a
+										href="/about.html"
+										class="hover:underline"
+										>About Us</a
+									>
+								</li>
+
+								<li class="flex items-center justify-center">
+									<a
+										href="/services.html"
+										class="hover:underline"
+										>Services</a
+									>
+								</li>
+
+								<li class="flex items-center justify-center">
+									<a
+										href="/packages.html"
+										class="hover:underline"
+										>Packages</a
+									>
+								</li>
+							</ul>
+
+							<!-- Hamburger button -->
+							<button
+								type="button"
+								id="hamburger-button"
+								class="flex items-center justify-center h-12 border border-white rounded md:hidden"
+							>
+								<div
+									class="h-6 p-0 px-2 hamburger hamburger--squeeze"
+								>
+									<div class="w-6 hamburger-box">
+										<div class="hamburger-inner"></div>
+									</div>
+								</div>
+							</button>
+
+							<button
+								type="button"
+								class="hidden py-4 px-7 button button-secondary md:block w-max"
+								data-contact-button="true"
+							>
+								Contact Us
+							</button>
+						</div>
+
+						<!-- Links -->
+						<ul
+							id="navbar-links"
+							style="display: none"
+							class="flex flex-col md:!hidden"
+						>
+							<li>
+								<a
+									href="/about.html"
+									class="block w-full py-2 hover:bg-blue-600"
+									>About Us</a
+								>
+							</li>
+
+							<li>
+								<a
+									href="/services.html"
+									class="block w-full py-2 hover:bg-blue-600"
+									>Services</a
+								>
+							</li>
+
+							<li>
+								<a
+									href="/packages.html"
+									class="block w-full py-2 hover:bg-blue-600"
+									>Packages</a
+								>
+							</li>
+
+							<li>
+								<button
+									type="button"
+									class="mt-4 button button-secondary"
+									data-contact-button="true"
+								>
+									Contact Us
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- Navbar end -->
+
+			<main class="bg-app">
+				<div class="pb-12 mx-auto max-w-app-margin-16">
+					<ul
+						id="packages"
+						class="flex flex-col gap-6 pt-12 mx-4 md:flex-row md:mx-28"
+					>
+						<!-- <li>
+							<div class="w-full card">
+								<div class="">
+									<p class="inline">satu</p>
+
+									<div
+										class="inline-block h-full w-[2px] bg-black"
+									></div>
+
+									<p class="inline">dua</p>
+								</div>
+							</div>
+						</li> -->
+					</ul>
+				</div>
+			</main>
+		</div>
+
+		<!-- <script src="./scripts/bootstrap/modal.js"></script> -->
+		<script src="./scripts/navbar.js"></script>
+		<script src="./lib/micromodal.min.js"></script>
+		<script src="./scripts/index.js" type="module"></script>
+	</body>
+</html>

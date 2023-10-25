@@ -1,0 +1,17 @@
+@layer components {
+	.button {
+		@apply w-full py-3 font-semibold rounded-full active:scale-[97.5%] transition-all;
+	}
+
+	.button-primary {
+		@apply text-white bg-blue-500 hover:bg-blue-600;
+	}
+
+	.button-secondary {
+		@apply bg-white text-slate-900 hover:bg-slate-300;
+	}
+
+	.button-light-gray {
+		@apply bg-slate-200 text-slate-900 hover:bg-slate-300;
+	}
+}

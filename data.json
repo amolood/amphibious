@@ -1,0 +1,16 @@
+{
+	"packages": [
+		{
+			"isLaris": true,
+			"quota": "unlimited",
+			"activePeriod": "1d",
+			"price": 3000
+		},
+		{
+			"isLaris": false,
+			"quota": "unlimited",
+			"activePeriod": "30d",
+			"price": 50000
+		}
+	]
+}

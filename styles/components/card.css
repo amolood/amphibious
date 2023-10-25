@@ -1,0 +1,18 @@
+@layer components {
+	.card {
+		@apply px-4 py-6 bg-white shadow-lg md:p-6 rounded-xl;
+	}
+
+	/* For status page */
+	.info-main__card {
+		@apply card text-slate-900;
+	}
+
+	.info-more__card {
+		@apply flex items-center justify-between p-3 text-xs rounded-lg md:text-sm bg-slate-200;
+	}
+
+	.info-more__card__value {
+		@apply text-slate-700;
+	}
+}

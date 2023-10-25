@@ -1,0 +1,11 @@
+:root {
+	--color-primary: "hsl(212, 91%, 44%)";
+}
+
+.btn-secondary {
+	/* Bootstrap (override base classes) */
+	--bs-btn-color: #000;
+	--bs-btn-bg: #f4f7fe;
+	--bs-btn-hover-bg: #cdd1d4;
+	--bs-btn-active-bg: #cdd1d4;
+}

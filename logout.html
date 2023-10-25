@@ -1,0 +1,38 @@
+<html lang="id">
+	<head>
+		<meta charset="utf-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="expires" content="-1" />
+		<meta http-equiv="refresh" content="3; url=/login.html" />
+
+		<title>$(hostname) - Log out</title>
+
+		<link rel="stylesheet" href="./styles/output.css" />
+		<script>
+			function openLogin() {
+				if (window.name != "hotspot_logout") return true;
+				open("$(link-login)", "_blank", "");
+				window.close();
+				return false;
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="root">
+			<main
+				class="flex flex-col items-center justify-center min-h-screen text-sm text-white bg-blue-500"
+			>
+				<img alt="logged out illustration" class="w-64 mx-auto" />
+
+				<h1 class="pb-2 text-xl font-semibold">Logout berhasil!</h1>
+
+				<p class="text-xs">Sesi Anda telah bersih.</p>
+			</main>
+		</div>
+
+		<script src="./scripts/index.js" type="module"></script>
+	</body>
+</html>

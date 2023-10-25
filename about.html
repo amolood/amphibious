@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>$(hostname) - About Us</title>
+		<link rel="stylesheet" href="./styles/output.css" />
+	</head>
+
+	<body>
+		<div id="root" class="min-h-screen text-sm md:text-base text-slate-500">
+			<!-- Navbar -->
+			<nav id="navbar" class="text-white bg-blue-500">
+				<div class="mx-auto max-w-app-margin-12">
+					<!-- <div class="pt-6 mx-2 sm:mx-12 md:mx-24"> -->
+					<div class="pt-6 mx-4 min-[480px]:mx-8 sm:mx-12">
+						<!-- Top -->
+						<div
+							id="navbar__top"
+							class="flex items-center justify-between"
+						>
+							<!-- Logo -->
+							<a href="/" class="p-2 pl-0 text-lg">$(hostname)</a>
+
+							<!-- Links -->
+							<ul class="hidden gap-12 md:flex">
+								<li class="flex items-center justify-center">
+									<a
+										href="/about.html"
+										class="hover:underline"
+										>About Us</a
+									>
+								</li>
+
+								<li class="flex items-center justify-center">
+									<a
+										href="/services.html"
+										class="hover:underline"
+										>Services</a
+									>
+								</li>
+
+								<li class="flex items-center justify-center">
+									<a
+										href="/packages.html"
+										class="hover:underline"
+										>Packages</a
+									>
+								</li>
+							</ul>
+
+							<!-- Hamburger button -->
+							<button
+								type="button"
+								id="hamburger-button"
+								class="flex items-center justify-center h-12 border border-white rounded md:hidden"
+							>
+								<div
+									class="h-6 p-0 px-2 hamburger hamburger--squeeze"
+								>
+									<div class="w-6 hamburger-box">
+										<div class="hamburger-inner"></div>
+									</div>
+								</div>
+							</button>
+
+							<button
+								type="button"
+								class="hidden py-4 px-7 button button-secondary md:block w-max"
+								data-contact-button="true"
+							>
+								Contact Us
+							</button>
+						</div>
+
+						<!-- Links -->
+						<ul
+							id="navbar-links"
+							style="display: none"
+							class="flex flex-col md:!hidden"
+						>
+							<li>
+								<a
+									href="/about.html"
+									class="block w-full py-2 hover:bg-blue-600"
+									>About Us</a
+								>
+							</li>
+
+							<li>
+								<a
+									href="/services.html"
+									class="block w-full py-2 hover:bg-blue-600"
+									>Services</a
+								>
+							</li>
+
+							<li>
+								<a
+									href="/packages.html"
+									class="block w-full py-2 hover:bg-blue-600"
+									>Packages</a
+								>
+							</li>
+
+							<li>
+								<button
+									type="button"
+									class="mt-4 button button-secondary"
+									data-contact-button="true"
+								>
+									Contact Us
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- Navbar end -->
+
+			<main class="bg-app">
+				<div class="pt-16 mx-4 max-w-app-margin md:pt-20">
+					<div class="max-w-lg mx-auto card md:p-12">
+						<div class="pb-4">
+							<h1
+								class="pb-2 text-2xl font-bold text-slate-900 md:text-3xl"
+							>
+								About Us
+							</h1>
+
+							<p class="text-slate-400">Rangga Cell</p>
+						</div>
+
+						<p>
+							Sejak tahun 2014, Rangga Cell beroperasi di jalan
+							Ahmad Yani No. 41.<br /><br />
+							Kami menjual pulsa, kuota, baterai, charger, kartu
+							perdana, dan lainnya.<br /><br />
+							Kami sangat bersaing dengan yang lain dalam hal
+							harga.
+						</p>
+					</div>
+				</div>
+			</main>
+
+			<footer class="py-6 text-xs text-center">
+				<p class="py-4">
+					&copy; 2023 Rangga Cell. All Rights Reserved.
+				</p>
+			</footer>
+		</div>
+
+		<script src="./scripts/navbar.js"></script>
+		<script src="./scripts/index.js" type="module"></script>
+	</body>
+</html>
