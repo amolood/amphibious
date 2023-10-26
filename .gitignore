@@ -1,0 +1,11 @@
+node_modules
+.env
+.vscode
+
+._dev
+_UPLOAD
+index.html
+b*.html
+qr.html
+tailwind.config.js
+package*.json
