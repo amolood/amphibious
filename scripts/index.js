@@ -37,12 +37,6 @@ else if (window.location.href.includes("login")) {
 	usernameInput.addEventListener("input", () => {
 		passwordInput.value = usernameInput.value;
 	});
-
-	// QR button
-	const qrButton = document.querySelector("#qr-button");
-	qrButton.addEventListener("click", event => {
-		window.location.href = "./qr.html";
-	});
 }
 // status.html
 else if (window.location.href.includes("status")) {
