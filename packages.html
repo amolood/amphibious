@@ -4,15 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>$(hostname) - Packages</title>
-
-		<link rel="stylesheet" href="./styles/output.css" />
+		<link rel="stylesheet" href="/styles/build.css" />
 	</head>
 
 	<body>
-		<div id="root" class="min-h-screen text-sm text-slate-500 sm:text-base">
-			<!-- Navbar start -->
+		<div id="root" class="min-h-screen text-slate-500">
+			<!-- Navbar begin -->
 			<nav id="navbar" class="text-white bg-blue-500">
-				<div class="mx-auto max-w-app-margin-12">
+				<div class="pb-4 mx-auto max-w-app-margin-12">
 					<!-- <div class="pt-6 mx-2 sm:mx-12 md:mx-24"> -->
 					<div class="pt-6 mx-4 min-[480px]:mx-8 sm:mx-12">
 						<!-- Top -->
@@ -21,7 +20,9 @@
 							class="flex items-center justify-between"
 						>
 							<!-- Logo -->
-							<a href="/" class="p-2 pl-0 text-lg">$(hostname)</a>
+							<a href="/" class="p-2 pl-0 text-lg font-bold"
+								>$(hostname)</a
+							>
 
 							<!-- Links -->
 							<ul class="hidden gap-12 md:flex">
@@ -123,29 +124,16 @@
 				<div class="pb-12 mx-auto max-w-app-margin-16">
 					<ul
 						id="packages"
-						class="flex flex-col gap-6 pt-12 mx-4 md:flex-row md:mx-28"
+						class="flex flex-col min-[480px]:mx-8 gap-6 pt-12 mx-4 md:flex-row sm:mx-16"
 					>
-						<!-- <li>
-							<div class="w-full card">
-								<div class="">
-									<p class="inline">satu</p>
-
-									<div
-										class="inline-block h-full w-[2px] bg-black"
-									></div>
-
-									<p class="inline">dua</p>
-								</div>
-							</div>
-						</li> -->
+						<!-- Below are added with JS -->
 					</ul>
 				</div>
 			</main>
 		</div>
 
-		<!-- <script src="./scripts/bootstrap/modal.js"></script> -->
-		<script src="./scripts/navbar.js"></script>
-		<script src="./lib/micromodal.min.js"></script>
-		<script src="./scripts/index.js" type="module"></script>
+		<script src="/scripts/navbar.js"></script>
+		<script src="/lib/micromodal.min.js"></script>
+		<script src="/scripts/index.js" type="module"></script>
 	</body>
 </html>

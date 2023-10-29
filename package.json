@@ -1,16 +1,17 @@
 {
-  "name": "project-amfibi",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwind-watch": "npx tailwindcss -i ./styles/index.css -o ./styles/output.css --watch"
-  },
-  "keywords": [],
-  "author": "ranggabs",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "tailwindcss": "^3.3.3"
-  }
+	"name": "project-amfibi",
+	"version": "1.1.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"tailwind-watch": "npx tailwindcss -i ./styles/index.css -o ./styles/output.css --watch",
+		"tailwind-build": "npx tailwindcss -i ./styles/index.css -o ./styles/build.css --minify"
+	},
+	"keywords": [],
+	"author": "ranggabs",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"tailwindcss": "^3.3.3"
+	}
 }

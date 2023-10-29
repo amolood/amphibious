@@ -31,18 +31,18 @@ export const formatRupiah = nominal => {
 	return result;
 };
 
-export const createWhatsAppMessage = (orderType, options) => {
+/* export const createWhatsAppMessage = (orderType, options) => {
 	if (orderType === "voucher") {
 	} else if (orderType === "pulsa") {
 	} else if (orderType === "listrik") {
 	}
 	return "";
-};
+}; */
 
 /**
  *
  * @param {string} htmlString
- * @returns
+ * @returns HTMLElement
  */
 export const createElementFromHTML = htmlString => {
 	const div = document.createElement("div");
@@ -74,13 +74,13 @@ export const createPackageCard = (
 
 	if (isLaris) {
 		const badge = createElementFromHTML(
-			`<span class="rounded-full bg-[#dc3545] text-white text-xs px-3 py-2 mb-3 block w-max">Terlaris</span>`
+			`<span class="rounded-full bg-[#dc3545] text-white text-xs sm:text-sm font-medium px-3 py-2 mb-3 block w-max">Terlaris</span>`
 		);
 		heading.appendChild(badge);
 	}
 
 	const title = createElementFromHTML(
-		`<p class="pb-1 text-slate-900 text-lg font-semibold">Yang Bikin Mantul</p>`
+		`<p class="pb-1 text-slate-900 text-lg sm:text-xl font-semibold">Yang Bikin Mantul</p>`
 	);
 	packageCard.appendChild(title);
 
@@ -97,7 +97,9 @@ export const createPackageCard = (
 	);
 
 	const quotaActivePeriod = createElementFromHTML(
-		`<p class="leading-none flex items-end pb-1"><span class="">${activePeriod}</span></p>`
+		`<p class="flex items-end pb-1"><span class="text-base leading-none font-medium">${formatMasaAktif(
+			activePeriod
+		)}</span></p>`
 	);
 
 	quota.appendChild(quotaAmountElement);
@@ -151,7 +153,7 @@ c-553 551 -600 596 -662 625 -159 74 -328 51 -454 -63 -100 -90 -149 -234
 		);
 		const infoItemTextSpan = createElementFromHTML(
 			`<span class="text-amber-500">${
-				i === 0 ? ` ${activePeriod}` : " 1 perangkat"
+				i === 0 ? ` ${formatMasaAktif(activePeriod)}` : " 1 perangkat"
 			}</span>`
 		);
 
@@ -195,12 +197,12 @@ export const createPackageCardWithoutButton = (
 export const createPackageModal = (id, packageCardElement, voucherIndex) => {
 	const modal =
 		createElementFromHTML(`<div id="${id}" aria-hidden="true" class="modal-slide">
-		<div tabindex="-1" data-micromodal-close class="modal__overlay">
+		<div tabindex="-1" data-micromodal-close class="modal__overlay w-full">
 			<div
 				role="dialog"
 				aria-modal="true"
 				aria-labelledBy="${id}-title"
-				class="modal__container p-0 flex flex-col overflow-hidden bg-neutral-200 mx-4"
+				class="modal__container w-full max-w-lg p-0 mx-4 flex flex-col overflow-hidden bg-neutral-200"
 			>
 				<div class="card flex flex-col overflow-hidden bg-neutral-200 p-4 min-[480px]:p-6 sm:p-8">
 					<header class="modal__header border-b border-slate-600">
@@ -233,7 +235,7 @@ export const createPackageModal = (id, packageCardElement, voucherIndex) => {
 						id="${id}-content"
 						class="modal__content m-0 py-2 overflow-y-auto"
 					>
-						<!-- package card -->
+						<!-- Package card - Above are added with JS -->
 	
 						<form action="" method="post" class="py-4">
 							<div class="mui-input-outline">
@@ -295,10 +297,11 @@ export const createPackageModal = (id, packageCardElement, voucherIndex) => {
 		}
 
 		const message = `*ORDER*: Voucher
+
 *Nama*: ${nameInput.value}
-*Voucher*: ${HOTSPOT_DATA.packages[voucherIndex].quota} | ${
+*Voucher*: ${HOTSPOT_DATA.packages[voucherIndex].quota} | ${formatMasaAktif(
 			HOTSPOT_DATA.packages[voucherIndex].activePeriod
-		}
+		)}
 *Harga*: ${rupiah(HOTSPOT_DATA.packages[voucherIndex].price)}
 `;
 
@@ -324,6 +327,62 @@ export const rupiah = number =>
 export const randomIntBetween = (min, max) =>
 	Math.floor(Math.random() * (max - min + 1) + min);
 
-/* module.exports = {
-	getTimeOfDay,
-}; */
+export const loadJS = (path, callback) => {
+	const script = document.createElement("script");
+	script.src = path;
+
+	script.onload = callback;
+	script.onreadystatechange = callback;
+
+	document.body.appendChild(script);
+};
+
+export const formatMasaAktif = teks => {
+	if (typeof teks === "string") {
+		if (teks.includes("d")) {
+			return teks.slice(0, -1) + " hari";
+		}
+	}
+};
+
+export const formatUnit = (inputString, digits) => {
+	const match = inputString.match(/^([\d.]+)\s+(\w+)$/);
+
+	if (!match) {
+		throw new Error("Format input tidak valid");
+	}
+
+	const value = parseFloat(match[1]);
+	const unit = match[2].toLowerCase();
+
+	const conversionFactors = {
+		kib: Math.pow(2, 10),
+		mib: Math.pow(2, 20),
+		gib: Math.pow(2, 30),
+	};
+
+	if (!conversionFactors.hasOwnProperty(unit)) {
+		throw new Error("Satuan tidak valid");
+	}
+
+	const bytes = value * conversionFactors[unit];
+	let result;
+
+	switch (unit) {
+		case "kib":
+			result = bytes / 10000;
+			break;
+
+		case "mib":
+			result = bytes / 1000000;
+			break;
+
+		case "gib":
+			result = bytes / 10000000;
+			break;
+	}
+
+	result = result.toFixed(digits);
+
+	return `${result} ${unit.charAt(0).toUpperCase()}B`;
+};

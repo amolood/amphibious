@@ -9,11 +9,11 @@
 		<title>$(hostname) - Log in</title>
 
 		<!-- Styles -->
-		<link rel="stylesheet" href="./styles/output.css" />
+		<link rel="stylesheet" href="/styles/build.css" />
 	</head>
 
 	<body>
-		<!-- $(if chap-id) -->
+		$(if chap-id)
 		<form
 			name="sendin"
 			action="$(link-login-only)"
@@ -26,7 +26,7 @@
 			<input type="hidden" name="popup" value="true" />
 		</form>
 
-		<script src="./scripts/md5.js"></script>
+		<script src="/scripts/md5.js"></script>
 		<script>
 			function doLogin() {
 				document.sendin.username.value = document.login.username.value;
@@ -39,294 +39,262 @@
 				return false;
 			}
 		</script>
-		<!-- $(endif) -->
+		$(endif)
 
-		<div id="root" class="min-h-screen text-sm md:text-base text-slate-500">
-			<!-- Navbar start -->
-			<nav id="navbar" class="text-white bg-blue-500">
-				<div class="mx-auto max-w-app-margin-12">
-					<!-- <div class="pt-6 mx-2 sm:mx-12 md:mx-24"> -->
-					<div class="pt-6 mx-4 min-[480px]:mx-8 sm:mx-12">
-						<!-- Top -->
-						<div
-							id="navbar__top"
-							class="flex items-center justify-between"
-						>
-							<!-- Logo -->
-							<a href="/" class="p-2 pl-0 text-lg">$(hostname)</a>
-
-							<!-- Links -->
-							<ul class="hidden gap-12 md:flex">
-								<li class="flex items-center justify-center">
-									<a
-										href="/about.html"
-										class="hover:underline"
-										>About Us</a
-									>
-								</li>
-
-								<li class="flex items-center justify-center">
-									<a
-										href="/services.html"
-										class="hover:underline"
-										>Services</a
-									>
-								</li>
-
-								<li class="flex items-center justify-center">
-									<a
-										href="/packages.html"
-										class="hover:underline"
-										>Packages</a
-									>
-								</li>
-							</ul>
-
-							<!-- Hamburger button -->
-							<button
-								type="button"
-								id="hamburger-button"
-								class="flex items-center justify-center h-12 border border-white rounded md:hidden"
+		<div id="root" class="min-h-screen sm:text-base text-slate-500">
+			<!-- Container -->
+			<div class="flex flex-col min-h-screen">
+				<!-- Navbar begin -->
+				<nav id="navbar" class="text-white bg-blue-500">
+					<div class="pb-4 mx-auto max-w-app-margin-12">
+						<!-- <div class="pt-6 mx-2 sm:mx-12 md:mx-24"> -->
+						<div class="pt-6 mx-4 min-[480px]:mx-8 sm:mx-12">
+							<!-- Top -->
+							<div
+								id="navbar__top"
+								class="flex items-center justify-between"
 							>
-								<div
-									class="h-6 p-0 px-2 hamburger hamburger--squeeze"
+								<!-- Logo -->
+								<a href="/" class="p-2 pl-0 text-lg font-bold"
+									>$(hostname)</a
 								>
-									<div class="w-6 hamburger-box">
-										<div class="hamburger-inner"></div>
-									</div>
-								</div>
-							</button>
 
-							<button
-								type="button"
-								class="hidden py-4 px-7 button button-secondary md:block w-max"
-								data-contact-button="true"
-							>
-								Contact Us
-							</button>
-						</div>
+								<!-- Links -->
+								<ul class="hidden gap-12 md:flex">
+									<li
+										class="flex items-center justify-center"
+									>
+										<a
+											href="/about.html"
+											class="hover:underline"
+											>About Us</a
+										>
+									</li>
 
-						<!-- Links -->
-						<ul
-							id="navbar-links"
-							style="display: none"
-							class="flex flex-col md:!hidden"
-						>
-							<li>
-								<a
-									href="/about.html"
-									class="block w-full py-2 hover:bg-blue-600"
-									>About Us</a
-								>
-							</li>
+									<li
+										class="flex items-center justify-center"
+									>
+										<a
+											href="/services.html"
+											class="hover:underline"
+											>Services</a
+										>
+									</li>
 
-							<li>
-								<a
-									href="/services.html"
-									class="block w-full py-2 hover:bg-blue-600"
-									>Services</a
-								>
-							</li>
+									<li
+										class="flex items-center justify-center"
+									>
+										<a
+											href="/packages.html"
+											class="hover:underline"
+											>Packages</a
+										>
+									</li>
+								</ul>
 
-							<li>
-								<a
-									href="/packages.html"
-									class="block w-full py-2 hover:bg-blue-600"
-									>Packages</a
-								>
-							</li>
-
-							<li>
+								<!-- Hamburger button -->
 								<button
 									type="button"
-									class="mt-4 button button-secondary"
+									id="hamburger-button"
+									class="flex items-center justify-center h-12 border border-white rounded md:hidden"
+								>
+									<div
+										class="h-6 p-0 px-2 hamburger hamburger--squeeze"
+									>
+										<div class="w-6 hamburger-box">
+											<div class="hamburger-inner"></div>
+										</div>
+									</div>
+								</button>
+
+								<button
+									type="button"
+									class="hidden py-4 px-7 button button-secondary md:block w-max"
 									data-contact-button="true"
 								>
 									Contact Us
 								</button>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			<!-- Navbar end -->
-
-			<main class="bg-app">
-				<div class="mx-auto max-w-app-margin-16">
-					<div
-						class="flex flex-col items-center pt-8 mx-4 justify-evenly max-w-app-margin-16 sm:flex-row-reverse"
-					>
-						<!-- Illustration -->
-						<img
-							src="./images/login-illustration.webp"
-							alt="A person pointing at a login screen"
-							class="w-1/2 max-w-[22rem] hidden sm:block"
-						/>
-
-						<!-- Card -->
-						<div class="w-full sm:w-[45%] max-w-lg card">
-							<h2
-								class="pb-4 text-3xl font-bold md:text-4xl text-slate-900"
-							>
-								Login
-							</h2>
-
-							<p
-								id="info"
-								class="pb-8 $(if error)info-error$(endif)"
-							>
-								Masukkan kode voucher.
-							</p>
-
-							<!-- Error message start -->
-							<!-- $(if error)
-							<div
-								class="flex gap-2 p-3 mb-4 bg-slate-800 rounded-xl"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									height="24"
-									fill="#dc3545"
-									viewBox="0 0 16 16"
-									class="flex-shrink-0 bg-white rounded-full"
-								>
-									<path
-										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"
-									/>
-								</svg>
-
-								<p>
-									<span class="text-white">Oh tidak! </span
-									>$(error)
-								</p>
 							</div>
-							$(endif) -->
-							<!-- Error message end -->
 
-							<!-- Tabs -->
-							<!-- <ul
-						id="tabs"
-						class="flex p-1 mb-8 rounded-full bg-slate-200"
-					> -->
-							<!-- Voucher -->
-							<!-- <a
-							href="#voucher"
-							class="w-full p-2 text-center text-blue-500 bg-white rounded-full"
-							>Voucher</a
-						> -->
-
-							<!-- Member -->
-							<!-- <a
-							href="#member"
-							class="w-full p-2 text-center rounded-full"
-							>Member</a
-						>
-					</ul> -->
-
-							<!-- Input(s) -->
-							<form
-								name="login"
-								action="$(link-login-only)"
-								method="post"
-								$(if
-								chap-id)
-								onSubmit="return doLogin()"
-								$(endif)
+							<!-- Links -->
+							<ul
+								id="navbar-links"
+								style="display: none"
+								class="flex flex-col md:!hidden"
 							>
-								<!-- Idk.. -->
-								<input
-									type="hidden"
-									name="dst"
-									value="$(link-orig)"
-								/>
-								<input
-									type="hidden"
-									name="popup"
-									value="true"
-								/>
+								<li>
+									<a
+										href="/about.html"
+										class="block w-full py-2 hover:bg-blue-600"
+										>About Us</a
+									>
+								</li>
 
-								<label for="username" class="relative block">
+								<li>
+									<a
+										href="/services.html"
+										class="block w-full py-2 hover:bg-blue-600"
+										>Services</a
+									>
+								</li>
+
+								<li>
+									<a
+										href="/packages.html"
+										class="block w-full py-2 hover:bg-blue-600"
+										>Packages</a
+									>
+								</li>
+
+								<li>
+									<button
+										type="button"
+										class="mt-4 button button-secondary"
+										data-contact-button="true"
+									>
+										Contact Us
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<!-- Navbar end -->
+
+				<main class="flex flex-grow bg-app">
+					<div class="w-full mx-auto max-w-app-margin-16">
+						<div
+							class="relative flex flex-col items-center h-full mx-4 sm:justify-evenly max-w-app-margin-16 sm:flex-row-reverse"
+						>
+							<!-- Illustration -->
+							<img
+								src="/images/login-illustration.webp"
+								alt="A person pointing at a login screen"
+								class="relative w-3/4 max-w-[16rem] sm:max-w-[24rem] aspect-square object-top object-cover z-[1] -my-8 sm:static sm:m-0 sm:block sm:translate-y-0"
+							/>
+
+							<!-- Card begin -->
+							<div
+								class="w-full sm:w-[45%] max-w-lg card sm:m-0 z-[2]"
+							>
+								<h2
+									class="pb-4 text-3xl font-bold md:text-4xl text-slate-900"
+								>
+									Login
+								</h2>
+
+								<p
+									id="info"
+									class="pb-8 $(if error)info-error$(endif)"
+								>
+									Masukkan kode voucher.
+								</p>
+
+								<!-- Error message begin -->
+								$(if error)
+								<div
+									class="flex gap-2 p-3 mb-4 bg-slate-800 rounded-xl"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
-										height="1em"
-										viewBox="0 0 576 512"
-										class="absolute top-1/2 h-3 -rotate-[30deg] -translate-y-1/2 left-5"
+										height="24"
+										fill="#dc3545"
+										viewBox="0 0 16 16"
+										class="flex-shrink-0 bg-white rounded-full"
 									>
 										<path
-											d="M64 64C28.7 64 0 92.7 0 128v64c0 8.8 7.4 15.7 15.7 18.6C34.5 217.1 48 235 48 256s-13.5 38.9-32.3 45.4C7.4 304.3 0 311.2 0 320v64c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V320c0-8.8-7.4-15.7-15.7-18.6C541.5 294.9 528 277 528 256s13.5-38.9 32.3-45.4c8.3-2.9 15.7-9.8 15.7-18.6V128c0-35.3-28.7-64-64-64H64zm64 112l0 160c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16V176c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM96 160c0-17.7 14.3-32 32-32H448c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V160z"
+											d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"
 										/>
 									</svg>
 
-									<!-- Username -->
-									<input
-										type="text"
-										name="username"
-										id="username"
-										placeholder="Kode voucher.."
-										class="border-[2px] rounded-full pl-12 pr-4 py-2 block w-full focus-visible:outline-blue-500"
-									/>
-								</label>
+									<p>
+										<span class="text-white"
+											>Oh tidak! </span
+										>$(error)
+									</p>
+								</div>
+								$(endif)
+								<!-- Error message end -->
 
-								<!-- Password (hidden) -->
-								<input
-									type="password"
-									name="password"
-									id="password"
-									hidden
-								/>
-
-								<!-- Login button -->
-								<button
-									type="submit"
-									class="mt-8 button button-primary"
+								<!-- Input(s) -->
+								<form
+									name="login"
+									action="$(link-login-only)"
+									method="post"
+									$(if
+									chap-id)
+									onSubmit="return doLogin()"
+									$(endif)
 								>
-									Login
-								</button>
-							</form>
+									<!-- Idk.. -->
+									<input
+										type="hidden"
+										name="dst"
+										value="$(link-orig)"
+									/>
+									<input
+										type="hidden"
+										name="popup"
+										value="true"
+									/>
 
-							<!-- Divider -->
-							<!-- <div class="my-4 text-xs divider">Atau</div> -->
+									<label
+										for="username"
+										class="relative block"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											height="1em"
+											viewBox="0 0 576 512"
+											class="absolute top-1/2 h-3 -rotate-[30deg] -translate-y-1/2 left-5"
+										>
+											<path
+												d="M64 64C28.7 64 0 92.7 0 128v64c0 8.8 7.4 15.7 15.7 18.6C34.5 217.1 48 235 48 256s-13.5 38.9-32.3 45.4C7.4 304.3 0 311.2 0 320v64c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V320c0-8.8-7.4-15.7-15.7-18.6C541.5 294.9 528 277 528 256s13.5-38.9 32.3-45.4c8.3-2.9 15.7-9.8 15.7-18.6V128c0-35.3-28.7-64-64-64H64zm64 112l0 160c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16V176c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM96 160c0-17.7 14.3-32 32-32H448c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V160z"
+											/>
+										</svg>
 
-							<!-- QR code button -->
-							<!-- <button
-							type="button"
-							id="qr-button"
-							class="flex items-center justify-center gap-2 button button-light-gray"
-						>
-							<svg
-								height="1em"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M23 4.5V8h-1V4.5A1.502 1.502 0 0 0 20.5 3H17V2h3.5A2.503 2.503 0 0 1 23 4.5zM4.5 22A1.502 1.502 0 0 1 3 20.5V17H2v3.5A2.503 2.503 0 0 0 4.5 23H8v-1zM22 20.5a1.502 1.502 0 0 1-1.5 1.5H17v1h3.5a2.503 2.503 0 0 0 2.5-2.5V17h-1zM3 4.5A1.502 1.502 0 0 1 4.5 3H8V2H4.5A2.503 2.503 0 0 0 2 4.5V8h1zM10 19V6H9v13zM6 6v13h2V6zm8 13V6h-2v13zm3-13v13h2V6zm-2 0v13h1V6z"
-								/>
-								<path fill="none" d="M0 0h24v24H0z" />
-							</svg>
+										<!-- Username -->
+										<input
+											type="text"
+											name="username"
+											id="username"
+											placeholder="Kode voucher.."
+											class="border-[2px] rounded-full pl-12 pr-4 py-2 block w-full focus-visible:outline-blue-500"
+										/>
+									</label>
 
-							Login with QR
-						</button> -->
+									<!-- Password (hidden) -->
+									<input
+										type="password"
+										name="password"
+										id="password"
+										hidden
+									/>
 
-							<!-- <p class="text-xs text-center">
-							Mau coba WiFi gratis? Klik
-							<a href="#" class="text-blue-500 hover:underline"
-								>di sini</a
-							>.
-						</p> -->
+									<!-- Login button -->
+									<button
+										type="submit"
+										class="mt-8 button button-primary"
+									>
+										Login
+									</button>
+								</form>
+							</div>
+							<!-- Card end -->
 						</div>
 					</div>
-				</div>
-			</main>
+				</main>
 
-			<footer class="py-6 text-xs text-center">
-				<p class="py-4">
-					&copy; 2023 Rangga Cell. All Rights Reserved.
-				</p>
-			</footer>
+				<footer>
+					<p class="py-6 text-sm text-center">
+						&copy; 2023 Rangga Cell. All Rights Reserved.
+					</p>
+				</footer>
+			</div>
 		</div>
 
 		<!-- Scripts -->
-		<script src="./scripts/navbar.js"></script>
-		<script src="./scripts/index.js" type="module"></script>
+		<script src="/scripts/navbar.js"></script>
+		<script src="/scripts/index.js" type="module"></script>
 	</body>
 </html>

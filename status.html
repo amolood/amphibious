@@ -9,7 +9,7 @@
 		<meta http-equiv="expires" content="-1" />
 		<title>$(hostname) - Status</title>
 
-		<link rel="stylesheet" href="./styles/output.css" />
+		<link rel="stylesheet" href="/styles/build.css" />
 		<script>
 			$(if advert-pending == 'yes')
 				var popup = '';
@@ -29,12 +29,13 @@
 				}
 		</script>
 	</head>
+
 	<body $(if advert-pending == 'yes') onLoad="openAdvert()" $(endif)>
 	<!-- <body> -->
-		<div id="root" class="min-h-screen text-sm md:text-base text-slate-500">
-			<!-- Navbar -->
+		<div id="root" class="min-h-screen text-slate-500">
+			<!-- Navbar begin -->
 			<nav id="navbar" class="text-white bg-blue-500">
-				<div class="mx-auto max-w-app-margin-12">
+				<div class="pb-4 mx-auto max-w-app-margin-12">
 					<!-- <div class="pt-6 mx-2 sm:mx-12 md:mx-24"> -->
 					<div class="pt-6 mx-4 min-[480px]:mx-8 sm:mx-12">
 						<!-- Top -->
@@ -43,7 +44,9 @@
 							class="flex items-center justify-between"
 						>
 							<!-- Logo -->
-							<a href="/" class="p-2 pl-0 text-lg">$(hostname)</a>
+							<a href="/" class="p-2 pl-0 text-lg font-bold"
+								>$(hostname)</a
+							>
 
 							<!-- Links -->
 							<ul class="hidden gap-12 md:flex">
@@ -142,19 +145,19 @@
 			<!-- Navbar end -->
 
 			<main class="bg-app">
-				<div class="mx-auto max-w-app-margin-16">
-					<section>
-						<!-- Heading start -->
+				<section>
+					<div class="mx-auto max-w-app-margin-16">
+						<!-- Heading begin -->
 						<div
 							id="heading"
-							class="py-12 mx-4 font-light text-white sm:mx-16"
+							class="py-12 mx-4 min-[480px]:mx-8 font-light text-white sm:mx-16"
 						>
 							<!-- $(if login-by == 'trial')
 						<h1>Hi, trial user!</h1>
 						$(elif login-by != 'mac') -->
 							<h1
 								id="heading-title"
-								class="text-base sm:text-2xl md:text-3xl"
+								class="text-xl sm:text-2xl md:text-3xl"
 							>
 								<span id="welcome" class="font-bold"
 									>Selamat ...</span
@@ -162,16 +165,16 @@
 							</h1>
 							<!-- $(endif) -->
 
-							<p class="text-xs md:text-lg">
+							<p class="text-sm md:text-lg">
 								Selamat menikmati hidangan internet kami :&#41;
 							</p>
 						</div>
 						<!-- Heading end -->
 
-						<!-- Main info start -->
+						<!-- Main info begin -->
 						<ul
 							id="info-main"
-							class="grid grid-cols-1 min-[480px]:grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 sm:mx-16 mx-4 pb-14"
+							class="grid grid-cols-1 min-[480px]:mx-8 min-[480px]:grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 sm:mx-16 mx-4 pb-14"
 						>
 							<li>
 								<div class="info-main__card">
@@ -194,7 +197,7 @@
 									<div>
 										<h2>Upload</h2>
 
-										<p class="info-main__value">
+										<p id="upload" class="info-main__value">
 											$(bytes-in-nice)
 										</p>
 									</div>
@@ -222,7 +225,10 @@
 									<div>
 										<h2>Download</h2>
 
-										<p class="info-main__value">
+										<p
+											id="download"
+											class="info-main__value"
+										>
 											$(bytes-out-nice)
 										</p>
 									</div>
@@ -250,107 +256,76 @@
 									<div>
 										<h2>IP Address</h2>
 
-										<p class="info-main__value">$(ip)</p>
+										<p id="ip" class="info-main__value">
+											$(ip)
+										</p>
 									</div>
 								</div>
 							</li>
 						</ul>
 						<!-- Main info end -->
-					</section>
+					</div>
+				</section>
 
-					<div class="flex flex-col gap-6 pb-6 mx-4 md:mx-16">
-						<!-- More info start -->
-						<section class="w-full">
-							<h2
-								class="pb-6 text-lg font-semibold text-slate-900"
-							>
-								Informasi Lengkap
-							</h2>
+				<section>
+					<div class="mx-auto max-w-app-margin-16">
+						<h2
+							class="pb-6 mx-4 min-[480px]:mx-8 text-lg font-semibold sm:mx-16 text-slate-900"
+						>
+							Informasi Lengkap
+						</h2>
 
-							<ul id="info-more" class="flex flex-col gap-2 pb-6">
-								<li>
-									<div class="info-more__card">
-										<p>Username</p>
+						<!-- More info begin -->
+						<ul
+							id="info-more"
+							class="flex flex-col gap-2 pb-6 mx-4 min-[480px]:mx-8 sm:mx-16"
+						>
+							<li>
+								<div class="info-more__card">
+									<p>Username</p>
 
-										<p class="info-more__card__value">
-											$(username)
-										</p>
-									</div>
-								</li>
+									<p class="info-more__card__value">
+										$(username)
+									</p>
+								</div>
+							</li>
 
-								<li>
-									<div class="info-more__card">
-										<p>IP Address</p>
+							<li>
+								<div class="info-more__card">
+									<p>IP Address</p>
 
-										<p class="info-more__card__value">
-											$(ip)
-										</p>
-									</div>
-								</li>
+									<p class="info-more__card__value">$(ip)</p>
+								</div>
+							</li>
 
-								<li>
-									<div class="info-more__card">
-										<p>Waktu aktif</p>
+							<li>
+								<div class="info-more__card">
+									<p>Waktu aktif</p>
 
-										<p class="info-more__card__value">
-											$(uptime)
-										</p>
-									</div>
-								</li>
+									<p class="info-more__card__value">
+										$(uptime)
+									</p>
+								</div>
+							</li>
 
-								<li>
-									<div class="info-more__card">
-										<p>Sisa kuota</p>
+							<li>
+								<div class="info-more__card">
+									<p>Sisa kuota</p>
 
-										<p class="info-more__card__value">
-											Unlimited
-										</p>
-									</div>
-								</li>
-							</ul>
-						</section>
+									<p class="info-more__card__value">
+										Unlimited
+									</p>
+								</div>
+							</li>
+						</ul>
 						<!-- More info end -->
 
-						<!-- <section class="w-full"> -->
-						<!-- <h2
-								class="pb-6 text-lg font-semibold text-slate-900"
-							>
-								Cek Kecepatan Internet
-							</h2> -->
-
-						<!-- <div
-								class="flex items-center justify-center h-[12.5rem] mb-6 rounded-lg bg-slate-200"
-							>
-								<button
-									type="button"
-									id="speedtest-button"
-									class="px-4 py-2 text-xs uppercase button button-primary w-max"
-								>
-									Run speed test
-								</button>
-							</div> -->
-
-						<!-- Logout button start -->
-						<!-- <form
-								action="$(link-logout)"
-								name="logout"
-								onSubmit="return openLogout()"
-							>
-								<button
-									type="submit"
-									class="w-full button button-primary"
-								>
-									Logout
-								</button>
-							</form> -->
-						<!-- Logout button end -->
-						<!-- </section> -->
-
-						<!-- Logout button start -->
+						<!-- Logout button begin -->
 						<form
 							action="$(link-logout)"
 							name="logout"
 							onSubmit="return openLogout()"
+							class="mx-4 min-[480px]:mx-8 sm:mx-16"
 						>
 							<button
 								type="submit"
@@ -361,56 +336,11 @@
 						</form>
 						<!-- Logout button end -->
 					</div>
-
-					<!-- <form
-					action="$(link-logout)"
-					name="logout"
-					onSubmit="return openLogout()"
-				>
-					<table>
-						<tr>
-							<td>IP address</td>
-							<td>$(ip)</td>
-						</tr>
-						<tr>
-							<td>Bytes up / down</td>
-							<td>$(bytes-in-nice) / $(bytes-out-nice)</td>
-						</tr>
-						$(if session-time-left)
-						<tr>
-							<td>Connected / left</td>
-							<td>$(uptime) / $(session-time-left)</td>
-						</tr>
-						$(else)
-						<tr>
-							<td>Connected</td>
-							<td>$(uptime)</td>
-						</tr>
-						$(endif) $(if blocked == 'yes')
-						<tr>
-							<td>Status</td>
-							<td>
-								<a href="$(link-advert)" target="hotspot_advert"
-									>Advertisement required</a
-								>
-							</td>
-						</tr>
-						$(elif refresh-timeout)
-						<tr>
-							<td>Status refresh</td>
-							<td>$(refresh-timeout)</td>
-						</tr>
-						$(endif)
-					</table>
-					$(if login-by-mac != 'yes')
-					<input type="submit" value="Log out" />
-					$(endif)
-				</form> -->
-				</div>
+				</section>
 			</main>
 		</div>
 
-		<script src="./scripts/navbar.js"></script>
-		<script src="./scripts/index.js" type="module"></script>
+		<script src="/scripts/navbar.js"></script>
+		<script src="/scripts/index.js" type="module"></script>
 	</body>
 </html>
