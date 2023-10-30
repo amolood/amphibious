@@ -9,12 +9,9 @@ import {
 	formatUnit,
 } from "./utils.js";
 
-const getDatas = async () => {
-	if (typeof HOTSPOT_DATA === "undefined" || !HOTSPOT_DATA) {
-		await getData();
-	}
-};
-await getDatas();
+if (typeof HOTSPOT_DATA === "undefined" || !HOTSPOT_DATA) {
+	await getData();
+}
 
 // Contact button
 const contactButtons = document.querySelectorAll(
@@ -44,6 +41,27 @@ else if (window.location.href.includes("login")) {
 	});
 
 	// usernameInput.focus();
+
+	const anims = isOnLoad => {
+		const img = document.querySelector("img");
+		const card = document.querySelector(".card");
+
+		if (window.innerWidth < 640) {
+			img.classList.toggle("animate-float", false);
+			img.classList.toggle("animate-fade-in-down", isOnLoad);
+
+			card.classList.toggle("animate-fade-in-down", isOnLoad);
+		} else {
+			img.classList.toggle("animate-float", true);
+			img.classList.toggle("animate-fade-in-down", false);
+
+			card.classList.toggle("animate-fade-in-left", isOnLoad);
+		}
+	};
+
+	// Wait for 1 milisecond, then attach the listener
+	setTimeout(() => anims(true), 1);
+	window.addEventListener("resize", () => anims(false));
 }
 
 // status.html
@@ -62,6 +80,45 @@ else if (window.location.href.includes("status")) {
 	});
 }
 
+// services.html
+else if (window.location.href.includes("services")) {
+	const cards = document.querySelectorAll(".card");
+
+	cards.forEach((card, index) => {
+		card.style.setProperty("--anim-delay", index + 1);
+		card.classList.add("anim-delay-200");
+
+		if (window.innerWidth < 480) {
+			if (index !== 1) {
+				card.classList.add("animate-fade-in-left");
+			} else {
+				card.classList.add("animate-fade-in-right");
+			}
+		} else if (window.innerWidth < 768) {
+			if (index !== 1) {
+				card.classList.add("animate-fade-in-left");
+			} else {
+				card.classList.add("animate-fade-in-right");
+			}
+		} else {
+			// left
+			if (index === 0) {
+				card.classList.add("animate-fade-in-left");
+			}
+
+			// middle
+			else if (index === 1) {
+				card.classList.add("animate-fade-in-up");
+			}
+
+			// right
+			else {
+				card.classList.add("animate-fade-in-right");
+			}
+		}
+	});
+}
+
 // packages.html
 else if (window.location.href.includes("packages")) {
 	const ul = document.querySelector("ul#packages");
@@ -76,6 +133,7 @@ else if (window.location.href.includes("packages")) {
 			paket.price,
 			`modal-${index + 1}`
 		);
+		packageCard.id = `package-card-${index + 1}`;
 
 		const packageCardWithoutButton = createPackageCardWithoutButton(
 			paket.isLaris,
@@ -99,6 +157,16 @@ else if (window.location.href.includes("packages")) {
 		awaitCloseAnimation: true,
 		disableFocus: true,
 		disableScroll: true,
+	});
+
+	let cards = document.querySelectorAll(".card");
+	cards = Array.from(cards).filter((card, index) =>
+		card.id.includes("package-card")
+	);
+
+	cards.forEach((card, index) => {
+		card.style.setProperty("--anim-delay", index + 1);
+		card.classList.add("anim-delay-200", "animate-fade-in-left");
 	});
 }
 

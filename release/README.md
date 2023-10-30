@@ -1,3 +1,3 @@
-# minified version.
+# Minified version
 
 For faster page loading.

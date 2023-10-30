@@ -9,7 +9,7 @@
 		<title>$(hostname) - Log in</title>
 
 		<!-- Styles -->
-		<link rel="stylesheet" href="/styles/build.css" />
+		<link rel="stylesheet" href="/styles/output.css" />
 	</head>
 
 	<body>
@@ -170,7 +170,7 @@
 							<img
 								src="/images/login-illustration.webp"
 								alt="A person pointing at a login screen"
-								class="relative w-3/4 max-w-[16rem] sm:max-w-[24rem] aspect-square object-top object-cover z-[1] -my-8 sm:static sm:m-0 sm:block sm:translate-y-0"
+								class="relative w-[75%] sm:w-[40%] sm:min-w-[300px] max-w-[16rem] sm:max-w-[24rem] aspect-square object-top object-cover z-[1] -my-8 sm:static sm:m-0 sm:block sm:translate-y-0"
 							/>
 
 							<!-- Card begin -->
@@ -209,8 +209,9 @@
 
 									<p>
 										<span class="text-white"
-											>Oh tidak! </span
-										>$(error)
+											>Oh tidak!</span
+										>
+										$(error)
 									</p>
 								</div>
 								$(endif)

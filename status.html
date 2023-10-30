@@ -9,8 +9,8 @@
 		<meta http-equiv="expires" content="-1" />
 		<title>$(hostname) - Status</title>
 
-		<link rel="stylesheet" href="/styles/build.css" />
-		<script>
+		<link rel="stylesheet" href="/styles/output.css" />
+		<!-- <script>
 			$(if advert-pending == 'yes')
 				var popup = '';
 				function focusAdvert() {
@@ -27,11 +27,11 @@
 					window.close();
 					return false;
 				}
-		</script>
+		</script> -->
 	</head>
 
-	<body $(if advert-pending == 'yes') onLoad="openAdvert()" $(endif)>
-	<!-- <body> -->
+	<!-- <body $(if advert-pending == 'yes') onLoad="openAdvert()" $(endif)> -->
+	<body>
 		<div id="root" class="min-h-screen text-slate-500">
 			<!-- Navbar begin -->
 			<nav id="navbar" class="text-white bg-blue-500">
@@ -161,11 +161,11 @@
 							>
 								<span id="welcome" class="font-bold"
 									>Selamat ...</span
-								>, <span id="username">$(username)</span>!
+								>,<span id="username"> $(username)</span>!
 							</h1>
 							<!-- $(endif) -->
 
-							<p class="text-sm md:text-lg">
+							<p class="text-sm sm:text-base md:text-lg">
 								Selamat menikmati hidangan internet kami :&#41;
 							</p>
 						</div>
@@ -174,7 +174,7 @@
 						<!-- Main info begin -->
 						<ul
 							id="info-main"
-							class="grid grid-cols-1 min-[480px]:mx-8 min-[480px]:grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 sm:mx-16 mx-4 pb-14"
+							class="grid grid-cols-1 min-[480px]:mx-8 min-[480px]:grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 sm:mx-16 mx-4 pb-12"
 						>
 							<li>
 								<div class="info-main__card">
@@ -195,7 +195,7 @@
 									</i>
 
 									<div>
-										<h2>Upload</h2>
+										<h2 class="sm:text-lg">Upload</h2>
 
 										<p id="upload" class="info-main__value">
 											$(bytes-in-nice)
@@ -223,7 +223,7 @@
 									</i>
 
 									<div>
-										<h2>Download</h2>
+										<h2 class="sm:text-lg">Download</h2>
 
 										<p
 											id="download"
@@ -254,7 +254,7 @@
 									</i>
 
 									<div>
-										<h2>IP Address</h2>
+										<h2 class="sm:text-lg">IP Address</h2>
 
 										<p id="ip" class="info-main__value">
 											$(ip)
@@ -269,72 +269,92 @@
 
 				<section>
 					<div class="mx-auto max-w-app-margin-16">
-						<h2
-							class="pb-6 mx-4 min-[480px]:mx-8 text-lg font-semibold sm:mx-16 text-slate-900"
+						<div
+							class="flex flex-col gap-x-6 gap-y-12 md:flex-row mx-4 min-[480px]:mx-8 sm:mx-16"
 						>
-							Informasi Lengkap
-						</h2>
+							<div class="w-full md:w-[70%]">
+								<h2
+									class="pb-6 text-xl font-semibold text-slate-900"
+								>
+									Informasi Lengkap
+								</h2>
 
-						<!-- More info begin -->
-						<ul
-							id="info-more"
-							class="flex flex-col gap-2 pb-6 mx-4 min-[480px]:mx-8 sm:mx-16"
-						>
-							<li>
-								<div class="info-more__card">
-									<p>Username</p>
+								<!-- More info begin -->
+								<ul id="info-more" class="flex flex-col gap-2">
+									<li>
+										<div class="info-more__card">
+											<p>Username</p>
 
-									<p class="info-more__card__value">
-										$(username)
-									</p>
-								</div>
-							</li>
+											<p class="info-more__card__value">
+												$(username)
+											</p>
+										</div>
+									</li>
 
-							<li>
-								<div class="info-more__card">
-									<p>IP Address</p>
+									<li>
+										<div class="info-more__card">
+											<p>IP Address</p>
 
-									<p class="info-more__card__value">$(ip)</p>
-								</div>
-							</li>
+											<p class="info-more__card__value">
+												$(ip)
+											</p>
+										</div>
+									</li>
 
-							<li>
-								<div class="info-more__card">
-									<p>Waktu aktif</p>
+									<li>
+										<div class="info-more__card">
+											<p>Waktu aktif</p>
 
-									<p class="info-more__card__value">
-										$(uptime)
-									</p>
-								</div>
-							</li>
+											<p class="info-more__card__value">
+												$(uptime)
+											</p>
+										</div>
+									</li>
 
-							<li>
-								<div class="info-more__card">
-									<p>Sisa kuota</p>
+									<li>
+										<div class="info-more__card">
+											<p>Sisa kuota</p>
 
-									<p class="info-more__card__value">
-										Unlimited
-									</p>
-								</div>
-							</li>
-						</ul>
-						<!-- More info end -->
+											<p class="info-more__card__value">
+												Unlimited
+											</p>
+										</div>
+									</li>
+								</ul>
+								<!-- More info end -->
+							</div>
 
-						<!-- Logout button begin -->
-						<form
-							action="$(link-logout)"
-							name="logout"
-							onSubmit="return openLogout()"
-							class="mx-4 min-[480px]:mx-8 sm:mx-16"
-						>
-							<button
-								type="submit"
-								class="w-full button button-primary"
-							>
-								Logout
-							</button>
-						</form>
-						<!-- Logout button end -->
+							<div class="w-full">
+								<h2
+									class="pb-6 text-xl font-semibold text-slate-900"
+								>
+									Cek Kecepatan Internet
+								</h2>
+
+								<iframe
+									src="https://openspeedtest.com/Get-widget.php"
+									frameborder="0"
+									width="100%"
+									height="350"
+									class="border border-black bg-slate-200"
+								></iframe>
+
+								<!-- Logout button begin -->
+								<form
+									action="$(link-logout)"
+									name="logout"
+									onSubmit="return openLogout()"
+								>
+									<button
+										type="submit"
+										class="w-full mt-6 button button-primary"
+									>
+										Logout
+									</button>
+								</form>
+								<!-- Logout button end -->
+							</div>
+						</div>
 					</div>
 				</section>
 			</main>

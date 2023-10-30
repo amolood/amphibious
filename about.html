@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>$(hostname) - About Us</title>
-		<link rel="stylesheet" href="/styles/build.css"" />
+		<link rel="stylesheet" href="/styles/output.css"" />
 	</head>
 
 	<body>
@@ -122,7 +122,10 @@
 
 			<main class="bg-app">
 				<div class="pt-16 mx-4 max-w-app-margin md:pt-20">
-					<div class="max-w-lg mx-auto card min-[480px]:p-8 sm:p-12">
+					<div
+						style="animation-delay: 0"
+						class="max-w-lg mx-auto card min-[480px]:p-8 sm:p-12 animate-fade-in-left"
+					>
 						<h1
 							class="pb-2 text-2xl font-bold text-slate-900 md:text-3xl"
 						>
@@ -143,7 +146,8 @@
 
 					<!-- Me -->
 					<div
-						class="flex items-center justify-between max-w-lg p-3 mx-auto mt-4 text-xs card sm:text-sm"
+						style="animation-delay: 150ms"
+						class="flex items-center justify-between max-w-lg p-3 mx-auto mt-4 text-xs card sm:text-sm animate-fade-in-right"
 					>
 						<p>
 							Built by

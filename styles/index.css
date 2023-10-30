@@ -14,6 +14,8 @@
 
 :root {
 	font-family: "Roboto", sans-serif;
+
+	--anim-delay: 1;
 }
 
 #root {
@@ -54,4 +56,98 @@
 	#info-main .info-main__value {
 		@apply text-xl font-semibold text-blue-500 md:text-2xl;
 	}
+}
+
+/* Animations */
+@keyframes floating {
+	0% {
+		transform: translateY(10px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(10px);
+	}
+}
+
+.animate-float {
+	animation: floating 6s infinite ease-in-out;
+}
+
+@keyframes fadeInLeft {
+	0% {
+		transform: translateX(-50px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+		animation-fill-mode: forwards;
+	}
+}
+.animate-fade-in-left {
+	animation: fadeInLeft 1s;
+}
+
+@keyframes fadeInRight {
+	0% {
+		transform: translateX(50px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+		animation-fill-mode: forwards;
+	}
+}
+.animate-fade-in-right {
+	animation: fadeInRight 1s;
+}
+
+@keyframes fadeInUp {
+	0% {
+		transform: translateY(-50px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+		animation-fill-mode: forwards;
+	}
+}
+.animate-fade-in-up {
+	animation: fadeInUp 1s;
+}
+
+@keyframes fadeInDown {
+	0% {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+		animation-fill-mode: forwards;
+	}
+}
+.animate-fade-in-down {
+	animation: fadeInDown 1s;
+}
+
+.anim-delay-200 {
+	animation-delay: calc(200ms * var(--anim-delay));
+}
+.anim-delay-300 {
+	animation-delay: calc(300ms * var(--anim-delay));
+}
+.anim-delay-500 {
+	animation-delay: calc(500ms * var(--anim-delay));
+}
+.anim-delay-1000 {
+	animation-delay: 1000ms;
 }

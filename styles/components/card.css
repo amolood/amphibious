@@ -9,7 +9,7 @@
 	}
 
 	.info-more__card {
-		@apply flex items-center justify-between p-3 text-xs rounded-lg md:text-sm bg-slate-200;
+		@apply flex items-center justify-between p-3 rounded-lg bg-slate-200;
 	}
 
 	.info-more__card__value {
