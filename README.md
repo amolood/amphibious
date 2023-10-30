@@ -19,3 +19,4 @@ Design by: [Design With Arifin](https://dribbble.com/designwitharifin)
 ### v1.2.0
 
 -   Added animation to various elements
+-   Added speedtest feature on status page
