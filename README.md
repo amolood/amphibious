@@ -20,3 +20,4 @@ Design by: [Design With Arifin](https://dribbble.com/designwitharifin)
 
 -   Added animation to various elements
 -   Added speedtest feature on status page
+-   Uptime formatted to xx:yy:zz
