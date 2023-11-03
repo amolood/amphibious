@@ -7,6 +7,7 @@ import {
 	createPackageCardWithoutButton,
 	randomIntBetween,
 	formatUnit,
+	formatTime,
 } from "./utils.js";
 
 if (typeof HOTSPOT_DATA === "undefined" || !HOTSPOT_DATA) {
@@ -78,6 +79,10 @@ else if (window.location.href.includes("status")) {
 			element.innerText = formatUnit(element.innerText, 2);
 		}
 	});
+
+	// Uptime
+	const uptime = document.querySelector("#uptime");
+	uptime.innerText = formatTime(uptime.innerText);
 }
 
 // services.html

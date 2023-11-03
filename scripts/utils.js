@@ -386,3 +386,23 @@ export const formatUnit = (inputString, digits) => {
 
 	return `${result} ${unit.charAt(0).toUpperCase()}B`;
 };
+
+export const formatTime = input => {
+	const regex = /^(\d+h)?(\d+m)?(\d+s)?$/;
+	const match = input.match(regex);
+
+	if (match) {
+		const hour = match[1] ? match[1].replace("h", "") : "0";
+		const minute = match[2] ? match[2].replace("m", "") : "0";
+		const second = match[3] ? match[3].replace("s", "") : "0";
+
+		const formattedTime = `${hour.padStart(2, "0")}:${minute.padStart(
+			2,
+			"0"
+		)}:${second.padStart(2, "0")}`;
+
+		return formattedTime;
+	} else {
+		return "Invalid time format!";
+	}
+};
