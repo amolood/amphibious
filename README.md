@@ -4,7 +4,22 @@ Custom MikroTik hotspot page with clean design.
 
 Design by: [Design With Arifin](https://dribbble.com/designwitharifin)
 
-![login page](/pictures/login-page.webp)
+## Preview
+
+### Mobile
+
+![Mobile design](/pictures/mobile-design.webp)
+
+### Desktop
+
+![Desktop design](/pictures/desktop-design.webp)
+
+## Features
+
+-   Speedtest
+-   Uses decimal system format (KB, MB, GB, etc..) instead of binary system (KiB, MiB, GiB, etc..)
+-   Redirect to WhatsApp when ordering in the voucher packages page
+-   Formatted uptime (connected time) to hh:mm:ss
 
 ## Changelog
 
@@ -20,4 +35,4 @@ Design by: [Design With Arifin](https://dribbble.com/designwitharifin)
 
 -   Added animation to various elements
 -   Added speedtest feature on status page
--   Uptime formatted to xx:yy:zz
+-   Uptime formatted to hh:mm:ss
